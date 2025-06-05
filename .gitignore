@@ -174,3 +174,7 @@ poetry.toml
 pyrightconfig.json
 
 # End of https://www.toptal.com/developers/gitignore/api/python
+
+# Excluyendo las imagenes en formato .jpg y .jpeg que son las utilizadas para el entrenamiento del modelo
+**/*.jpg
+**/*.jpeg
