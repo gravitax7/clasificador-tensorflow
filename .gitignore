@@ -175,6 +175,7 @@ pyrightconfig.json
 
 # End of https://www.toptal.com/developers/gitignore/api/python
 
-# Excluyendo las imagenes en formato .jpg y .jpeg que son las utilizadas para el entrenamiento del modelo
+# Excluyendo las imagenes en formato .jpg, .jpeg y .png que son las utilizadas para el entrenamiento del modelo
 **/*.jpg
 **/*.jpeg
+**/*.png
