@@ -65,7 +65,7 @@ def predict_and_display(model, class_names, img_path):
         # Imagen preprocesada
         plt.subplot(1, 2, 2)
         plt.imshow(processed_img[0])  # Mostrar primera (y única) imagen del batch
-        plt.title(f"Preprocesada (128×128)\nPredicción: {predicted_class} ({confidence:.2%})")
+        plt.title(f"Preprocesada (224x224)\nPredicción: {predicted_class} ({confidence:.2%})")
         plt.axis('off')
         
         plt.tight_layout()

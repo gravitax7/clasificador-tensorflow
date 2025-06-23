@@ -87,5 +87,5 @@ if __name__ == "__main__":
 if __name__ == "__main__":
     # Ejemplo de uso
     trainer = Trainer(data_dir="data/raw")
-    history, class_names = trainer.train(epochs=10)
+    history, class_names = trainer.train(epochs=22)
     print("Clases aprendidas:", class_names)

@@ -11,7 +11,6 @@ class CNNModel:
         self.class_names = class_names
 
     def build_model(self):
-        """Construye el modelo usando MobileNetV2 con fine-tuning opcional."""
         base_model = MobileNetV2(
             input_shape=self.input_shape,
             include_top=False,
