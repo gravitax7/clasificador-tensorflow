@@ -6,6 +6,7 @@ un modelo con tensorflow ( data_loading, model, train) me va a ayudar a comprend
 para la creacion de modelos de ia para el trabajo que ayuden a identificar algun problema en especifico.
 
 ## INSTALACION ##
+Version de python requerida 3.10.0 https://www.python.org/downloads/release/python-3100/
 creacion del entorno virtual: python -m venv venv
 activacion del entorno: venv\Scripts\activate
 Instalacion de dependencias: pip install -r requirements
@@ -16,13 +17,14 @@ Abrir git desde la carpeta root
 'git add .' -- agrega todos los archivos al staging, para ser subidos
 'git reset' -- resetea el git add, solo si paso algun error, como por ejemplo, el .gitignore no estaba generado.
 'git tag v1.0' -- importante para identificar cada version que se commitea.
+
 ## ESTRUCTURA ##
 
 mi_proyecto_vision/
 │
-├── data/                # Datos crudos y procesados
-│   ├── raw/             # Imágenes originales
-│   └── processed/       # Imágenes preprocesadas
+├── data/                # Directorio de imagenes para el entrenamiento del modelo
+│   └── raw/             # Subcarpetas con las distintas clases
+│   
 │
 ├── notebooks/           # Jupyter Notebooks de experimentación
 │   └── 01-exploracion.ipynb
@@ -31,10 +33,14 @@ mi_proyecto_vision/
 │   ├── __init__.py
 │   ├── data_loading.py  # Clases/funciones para cargar datos
 │   ├── model.py         # Definición del modelo
-│   └── train.py         # Entrenamiento
+│   ├── prediccion.py    # Distintos metodos para mostrar la prediccion con el porcentaje de confianza
+│   ├── predict_b64.py   # *****Clase principal para el proyecto, devuelve la prediccion en formato json para imagenes base 64****
+│   ├── retrain.py       # Rentrena el modelo
+│   └── train.py         # Entrenamiento del modelo convolucional y creacion de diccionarios/metadata de las clases y del modelo
 │
 ├── models/              # Modelos guardados
-│   └── modelo_1.h5
+│   └── best_model.h5    # Modelo CNN entrenado
 │
-├── requirements.txt     # Dependencias
-└── README.md           # Documentación
+├── resultado.json       # Contiene el resultado de la prediccion y confianza
+├── requirements.txt     # Dependencias del proyecto ( instalar en el entorno virtual)
+└── README.md            # Documentación

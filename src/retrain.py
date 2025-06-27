@@ -8,7 +8,7 @@ class Retrainer:
     def __init__(self, data_dir, model_path="models/best_model.h5"):
         """
         Args:
-            data_dir: Ruta a los datos de reentrenamiento (misma estructura que antes).
+            data_dir: Ruta a los datos de reentrenamiento.
             model_path: Ruta al modelo preentrenado (.h5).
         """
         self.data_dir = data_dir
@@ -29,12 +29,12 @@ class Retrainer:
         
         # 2. Cargar modelo preentrenado
         model = self.load_model()
-        print("✅ Modelo cargado. Resumen:")
+        print("Modelo cargado. Resumen:")
         model.summary()
 
         # 3. Callbacks
         checkpoint = ModelCheckpoint(
-            self.model_path,  # Misma ruta (sobrescribe solo si mejora)
+            self.model_path,  # sobrescribe solo si mejora
             monitor="val_accuracy",
             save_best_only=True,
             mode="max",
@@ -47,7 +47,7 @@ class Retrainer:
         )
 
         # 4. Reentrenamiento
-        print(f"\n⚡ Reentrenando por {epochs} épocas...")
+        print(f"\n Reentrenando por {epochs} épocas...")
         history = model.fit(
             X, y,
             epochs=epochs,
@@ -62,6 +62,6 @@ class Retrainer:
 if __name__ == "__main__":
     retrainer = Retrainer(
         data_dir="data/raw",          # Carpeta con nuevas imágenes
-        model_path="models/best_model.keras"  # Modelo a mejorar
+        model_path="models/best_model.h5"  # Modelo a mejorar
     )
     retrainer.retrain(epochs=15)
