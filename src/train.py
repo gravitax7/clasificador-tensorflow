@@ -33,7 +33,7 @@ class Trainer:
             logger.info(f"Guardando mapeo de clases en {class_mapping_path}")
             loader.save_class_mapping(class_mapping_path)
             
-            # Verificar que se creó
+            # ificar que se creó
             if not os.path.exists(class_mapping_path):
                 raise RuntimeError("No se generó class_mapping.json")
         
@@ -64,7 +64,8 @@ class Trainer:
                 callbacks=[checkpoint]
             )
             class_names = loader.classes
-            # Guardar también las clases usando nuestro método mejorado
+            
+            # Guardar las clases
             CNNModel.save_model(model, checkpoint_path, class_names)
         
             return history, class_names
@@ -75,12 +76,12 @@ class Trainer:
 if __name__ == "__main__":
     # Ejemplo de uso con parámetros personalizables
     trainer = Trainer(
-        data_dir="data/raw",  # Puedes cambiar esta ruta
-        model_dir="models"     # Puedes cambiar esta ruta
+        data_dir="data/raw",  
+        model_dir="models"    
     )
     history, class_names = trainer.train(
-        epochs=10,            # Puedes ajustar el número de épocas
-        batch_size=32         # Puedes ajustar el tamaño del batch
+        epochs=10,            
+        batch_size=32         
     )
     print("Clases aprendidas:", class_names)
 """
