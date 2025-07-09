@@ -2,7 +2,6 @@ from prediccion import predict_from_base64, load_saved_model
 import json
 import os
 
-<<<<<<< HEAD
 def predict_imagen_api(base64_string):
     model, class_names = load_saved_model()
     if base64_string.startswith("data:image"):
@@ -10,8 +9,7 @@ def predict_imagen_api(base64_string):
     result = predict_from_base64(model, class_names,base64_string)
     ##json.sumps(result, direct, ensure_ascii=False, indent=4)
     return result
-=======
->>>>>>> main
+
 if __name__ == "__main__":
     try:
         ##print("Directorio actual:", os.getcwd())
@@ -32,10 +30,6 @@ if __name__ == "__main__":
             json.dump(resultado, direct, ensure_ascii=False, indent=4)
             
     except Exception as e:
-<<<<<<< HEAD
         print(f"\nError general: {str(e)}")
 
  
-=======
-        print(f"\nError general: {str(e)}")
->>>>>>> main
